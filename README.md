@@ -26,3 +26,10 @@
 
 我的main.cpp檔裡面，首先是先選擇slew rate，我用和作業2相同的手法，以1/8為初始值開始往上增加，按一次UP鍵slew rate乘以2直到1為止，按一次DOWN鍵slew rate除以2直到1/8為止。
 按下select鍵之後跳出選擇slew rate的迴圈，並且進入產生波型的迴圈。產生波型的同時，我用thread去同步的取樣(共取500次)，測試出來的取樣頻率大約是500Hz。
+
+
+##接線
+
+![image](https://user-images.githubusercontent.com/72603727/113845038-ab1ca780-97c7-11eb-94bf-59e72f042618.png)
+![image](https://user-images.githubusercontent.com/72603727/113845066-b243b580-97c7-11eb-855e-51e5347793bf.png)
+![image](https://user-images.githubusercontent.com/72603727/113845102-bb348700-97c7-11eb-8b31-2290db8a97c9.png)
