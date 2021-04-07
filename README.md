@@ -24,8 +24,8 @@
 ![image](https://user-images.githubusercontent.com/72603727/113843161-efa74380-97c5-11eb-8b57-b62122b26e29.png)
 ![image](https://user-images.githubusercontent.com/72603727/113843181-f2a23400-97c5-11eb-9ae3-53561a3b0a8f.png)
 
-我的main.cpp檔裡面，首先是先選擇slew rate，我用和作業2相同的手法，以1/8為初始值開始往上增加，按一次UP鍵slew rate乘以2直到1為止，按一次DOWN鍵slew rate除以2直到1/8為止。
-按下select鍵之後跳出選擇slew rate的迴圈，並且進入產生波型的迴圈。產生波型的同時，我用thread去同步的取樣(共取500次)，測試出來的取樣頻率大約是500Hz。
+我的main.cpp檔裡面，首先是設定uLCD的顯示的格式。再來是先選擇slew rate，我用和作業2相同的手法，以1/8為初始值開始往上增加，按一次UP鍵slew rate乘以2直到1為止，按一次DOWN鍵slew rate除以2直到1/8為止。按下select鍵之後跳出選擇slew rate的迴圈，並且進入產生波型的迴圈。產生波型的同時，我用thread去同步的取樣(共取500次)，測試出來的取樣頻率大約是500Hz。
+而我的FFT.py檔基本上和Lab4的一樣，只差在我的FFT.py裡的取樣頻率改成500Hz而已。
 
 
 ##接線
