@@ -9,18 +9,13 @@ AnalogOut wave_out(D7);
 AnalogIn sample_wave(A5);
 Thread thread;
 float ADCdata[500];
-// Timer time;
 
 void sample(void)
 {
-    // time.start();
-    for(int i = 0; i < 500; i++) {          // Use about 3 seconds for sampling 500 times.
-        ADCdata[i] = sample_wave;           // Thus, the average sampling rate is 166.6666667Hz.
+    for(int i = 0; i < 500; i++) {          // Use about 1 seconds for sampling 500 times.
+        ADCdata[i] = sample_wave;           // Thus, the average sampling rate is 500Hz.
         ThisThread::sleep_for(2ms);
     }
-    // time.stop();
-    // auto s = chrono::duration_cast<chrono::seconds>(t.elapsed_time()).count();
-    // printf("Timer time: %llus\n", s);
     for (int i = 0; i < 500; i++) {
         printf("%f\r\n", ADCdata[i]);
     }
@@ -91,6 +86,8 @@ int main()
     in_time = T - up_time - down_time;
     amp = 3 / 3.3;
 
+    thread.start(sample);
+
     while(1) {
         for (float a = 0.0; a < amp; a += amp / (up_time / 0.0254))
             wave_out = a;
@@ -98,20 +95,4 @@ int main()
         for (float b = amp; b > 0; b -= amp / (down_time / 0.0254))
             wave_out = b;
     }
-
-    /*T = 1 / (double)freq;
-    up_time = T / 5;
-    down_time = (T / 5) * 4;
-    amp = 3 / 3.3;
-
-    thread.start(sample);
-
-    while(1) {
-        for(float a = 0.0; a < amp; a += amp / (up_time / 0.0000241)) {     // we try and error and find out that 0.0000237 is the best value.
-            wave_out = a;
-        }
-        for(float b = amp; b > 0; b -= amp / (down_time / 0.0000241)) {
-            wave_out = b;
-        }
-    }*/
 }
