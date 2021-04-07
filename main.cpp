@@ -28,7 +28,7 @@ void sample(void)
 
 int main()
 {
-    float rate = 1/8;
+    float srate = 0.125;
     int i, j;
     int T = 240, up_time, down_time, in_time;          // T means the period of wave.
                                                        // up_time means the time of the upward region of one period. 
@@ -45,35 +45,49 @@ int main()
     uLCD.color(BLACK);
     uLCD.set_font(FONT_5X7);
     uLCD.locate(i, j);
-    uLCD.printf("%lf", rate * 8);
+    uLCD.printf("%d / %d", 1, 8);
 
     while(1) {
         if (Up == 1) {
-            if (rate < 1)
-                rate *= 2;
+            if (srate < 1.0)
+                srate = srate * 2;
             else
-                rate = 1;
+                srate = 1.0;
             uLCD.cls();
             uLCD.locate(i, j);
-            uLCD.printf("%lf", rate);
+            if (srate == 0.125)
+                uLCD.printf("%d / %d", 1, 8);
+            else if (srate == 0.25)
+                uLCD.printf("%d / %d", 1, 4);
+            else if (srate == 0.5)
+                uLCD.printf("%d / %d", 1, 2);
+            else if (srate == 1.0)
+                uLCD.printf("%d", 1);
             ThisThread::sleep_for(500ms);
         }
         else if (Down == 1) {
-            if (rate > 1 / 8)
-                rate /= 2;
+            if (srate > 0.125)
+                srate = srate / 2;
             else
-                rate = 1 / 8;
+                srate = 0.125;
             uLCD.cls();
             uLCD.locate(i, j);
-            uLCD.printf("%lf", rate);
+            if (srate == 0.125)
+                uLCD.printf("%d / %d", 1, 8);
+            else if (srate == 0.25)
+                uLCD.printf("%d / %d", 1, 4);
+            else if (srate == 0.5)
+                uLCD.printf("%d / %d", 1, 2);
+            else if (srate == 1.0)
+                uLCD.printf("%d", 1);
             ThisThread::sleep_for(500ms);
         }
         if (Select == 1)
             break;
     }
 
-    up_time = 80 * rate;
-    down_time = 80 * rate;
+    up_time = 80 * srate;
+    down_time = 80 * srate;
     in_time = T - up_time - down_time;
     amp = 3 / 3.3;
 
