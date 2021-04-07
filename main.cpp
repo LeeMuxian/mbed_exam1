@@ -92,10 +92,10 @@ int main()
     amp = 3 / 3.3;
 
     while(1) {
-        for (float a = 0.0; a < amp; a += amp / (up_time / 0.0000241))
+        for (float a = 0.0; a < amp; a += amp / (up_time / 0.0254))
             wave_out = a;
         ThisThread::sleep_for(in_time);
-        for (float b = amp; b > 0; b -= amp / (down_time / 0.0000241))
+        for (float b = amp; b > 0; b -= amp / (down_time / 0.0254))
             wave_out = b;
     }
 
