@@ -9,7 +9,7 @@
 ##For slew rate = 1/4:
 
 ![image](https://user-images.githubusercontent.com/72603727/113842976-c981a380-97c5-11eb-8d41-36e32a4ea97e.png)
-![image](https://user-images.githubusercontent.com/72603727/113842991-cd152a80-97c5-11eb-990b-23ad3c0603bb.png)
+![image](https://user-images.githubusercontent.com/72603727/113844584-38133100-97c7-11eb-8b2d-6c862b8a55ef.png)
 ![image](https://user-images.githubusercontent.com/72603727/113843008-d0101b00-97c5-11eb-97d1-eaf0d95d3da7.png)
 
 ##For slew rate = 1/2:
